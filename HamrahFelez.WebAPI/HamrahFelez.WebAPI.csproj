@@ -14,4 +14,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HamrahFelez.Repository\HamrahFelez.Repository.csproj" />
+    <ProjectReference Include="..\HamrahFelez.Utilities\HamrahFelez.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>

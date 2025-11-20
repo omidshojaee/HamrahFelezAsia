@@ -1,3 +1,6 @@
+using HamrahFelez.Repository.DataAccess;
+using HamrahFelez.Utilities.Attributes;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,6 +18,20 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.Use(async (ctx, next) =>
+{
+    var endpoint = ctx.GetEndpoint();
+    var useProduction = endpoint?.Metadata.GetMetadata<UseProductionDbAttribute>() != null;
+
+    var cfg = ctx.RequestServices.GetRequiredService<IConfiguration>();
+    var cs = cfg.GetConnectionString(useProduction ? "DbMain" : "DbMain_Develop");
+
+    DataAccessManager.ConnectionString = cs;
+
+    await next();
+});
+
 
 app.UseHttpsRedirection();
 
