@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HamrahFelez.Repositories\HamrahFelez.Repositories.csproj" />
+    <ProjectReference Include="..\HamrahFelez.ViewModels\HamrahFelez.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>
