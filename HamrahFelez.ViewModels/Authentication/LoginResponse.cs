@@ -9,5 +9,6 @@ namespace HamrahFelez.ViewModels.Authentication
     public class LoginResponse
     {
         public string Token { get; set; }
+        public List<long> fkAshkhasChilds { get; set; }
     }
 }

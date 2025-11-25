@@ -23,5 +23,6 @@
         public int? fkOrganizationalChartParent { get; set; }
         public int fkOptionApiRole { get; set; }
         public string OptionApiRole { get; set; }
+        public string fkAshkhasChilds { get; set; }
     }
 }

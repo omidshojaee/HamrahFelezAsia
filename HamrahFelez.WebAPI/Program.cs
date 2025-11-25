@@ -1,6 +1,7 @@
 using HamrahFelez.Repository.DataAccess;
 using HamrahFelez.Repository.User.Implementation;
 using HamrahFelez.Repository.User.Interface;
+using HamrahFelez.Services.Hosting;
 using HamrahFelez.Services.User.Implementation;
 using HamrahFelez.Services.User.Interface;
 using HamrahFelez.Utilities.Attributes;
@@ -18,6 +19,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHostedService<DbWarmupHostedService>();
 
 // Dependency injection
 builder.Services.AddScoped<IUserRepository, UserRepository>();

@@ -35,7 +35,7 @@ namespace HamrahFelez.WebAPI.Controllers.Authentication
 
             try
             {
-                var user = await _userService.GetUserByUsernameAsync(new GetUserByUsernameRequest
+                View_WebUser user = await _userService.GetUserByUsernameAsync(new GetUserByUsernameRequest
                 {
                     Username = request.Username
                 });
@@ -57,9 +57,20 @@ namespace HamrahFelez.WebAPI.Controllers.Authentication
 
                 var token = _jwt.GenerateToken(user.pkUser, user.fkOptionApiRole);
 
+                var fkAshkhasChilds = new List<long>();
+
+                if (!string.IsNullOrEmpty(user.fkAshkhasChilds))
+                {
+                    fkAshkhasChilds = user.fkAshkhasChilds
+                        .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                        .Select(x => long.Parse(x))
+                        .ToList();
+                }
+
                 var response = new LoginResponse()
                 {
                     Token = token,
+                    fkAshkhasChilds = fkAshkhasChilds
                 };
 
                 return StatusCode(StatusCodes.Status200OK, response);
