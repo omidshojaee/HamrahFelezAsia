@@ -1,4 +1,4 @@
-﻿namespace HamrahFelez.ViewModels.Common
+﻿namespace HamrahFelez.ViewModels
 {
     public class BaseStoredProcedureResponse
     {
