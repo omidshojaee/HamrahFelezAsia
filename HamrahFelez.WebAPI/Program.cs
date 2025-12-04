@@ -21,11 +21,8 @@ builder.Services.AddHostedService<DbWarmupHostedService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.Use(async (ctx, next) =>
 {
