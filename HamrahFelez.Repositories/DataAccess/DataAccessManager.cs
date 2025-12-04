@@ -1,6 +1,5 @@
 ﻿using Dapper;
 using HamrahFelez.ViewModels;
-using HamrahFelez.ViewModels.Common;
 using Microsoft.AspNetCore.Http;
 using System.Data;
 
