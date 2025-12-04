@@ -14,4 +14,11 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HamrahFelez.Repositories\HamrahFelez.Repositories.csproj" />
+    <ProjectReference Include="..\HamrahFelez.Services\HamrahFelez.Services.csproj" />
+    <ProjectReference Include="..\HamrahFelez.Utilities\HamrahFelez.Utilities.csproj" />
+    <ProjectReference Include="..\HamrahFelez.ViewModels\HamrahFelez.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>
