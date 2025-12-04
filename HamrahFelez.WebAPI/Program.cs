@@ -1,9 +1,10 @@
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using HamrahFelez.Repositories;
 using HamrahFelez.Services;
 using HamrahFelez.Utilities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,15 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Hamrah Felez Asia Web API",
+        Version = "v1"
+    });
+});
 
 var app = builder.Build();
 
